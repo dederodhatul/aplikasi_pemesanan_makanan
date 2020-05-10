@@ -23,29 +23,30 @@ Connection con;
 Statement state;
 ResultSet rs;
 private Object[][] isitabel=null;
-private String[] header ={"Jenis Makanan","qty","harga","Total"};
-DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new String[]{"Jenis Makanan","Qty","Harga","Total Harga"});
+private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"};
     /**
      * Creates new form Pembayaran2
      */
     public Pembayaran2() {
         initComponents();
     }
-    public void hitungBayar(){
+   private void datatabel(){
+        DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new String[]{"No","No_Order","Jenis Makanan","Jumlah","Harga"});
         try{
-            int hitung=0;
-            for(int i=0; i<tb1Pesan.getRowCount();i++){
-            String Total_Harga=(String)tb1Pesan.getValueAt(i,3);
-            
-            int iTotal_Harga=Integer.parseInt(Total_Harga);
-            hitung=(hitung+iTotal_Harga);
+            int No = 1;
+        con = KoneksiDatabase.getKoneksi();
+        state = con.createStatement();
+        String sql = "SELECT * FROM headinputan";
+        rs = state.executeQuery(sql);
+        while(rs.next()){
+            tableModel.addRow(new Object[]{No++,rs.getString(1),rs.getString(2),rs.getString(3)});
         }
-            txttotalbayar.setText(String.valueOf(hitung));
-        } catch (Exception e){
-            System.out.println("Error :"+e);
+        tb1Pesan.setModel(tableModel);
+        }catch (SQLException e){
+        JOptionPane.showMessageDialog(null,e);
         }
-    }
-
+    
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,8 +96,18 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
                 txtorderInputMethodTextChanged(evt);
             }
         });
+        txtorder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtorderActionPerformed(evt);
+            }
+        });
 
         bhitung.setText("hitung");
+        bhitung.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bhitungMouseClicked(evt);
+            }
+        });
         bhitung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bhitungActionPerformed(evt);
@@ -118,7 +129,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
         ));
         jScrollPane1.setViewportView(tb1Pesan);
 
-        tb1pesan.add(jScrollPane1);
+        tb1pesan.add(jScrollPane2);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,7 +144,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        tb1pesan.add(jScrollPane2);
+        tb1pesan.add(jScrollPane3);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,7 +159,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        tb1pesan.add(jScrollPane3);
+        tb1pesan.add(jScrollPane4);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,7 +174,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
         ));
         jScrollPane4.setViewportView(jTable4);
 
-        tb1pesan.add(jScrollPane4);
+        tb1pesan.add(jScrollPane5);
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,7 +189,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
         ));
         jScrollPane5.setViewportView(jTable5);
 
-        tb1pesan.add(jScrollPane5);
+        tb1pesan.add(jScrollPane6);
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,8 +203,6 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
             }
         ));
         jScrollPane6.setViewportView(jTable6);
-
-        tb1pesan.add(jScrollPane6);
 
         jLabel4.setText("Hapus No Order");
 
@@ -273,9 +282,9 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txttotalbayar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(tb1pesan, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txthapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -291,13 +300,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
     }// </editor-fold>//GEN-END:initComponents
 
     private void bhitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhitungActionPerformed
-    try {
-        // TODO add your handling code here:
-        bacaData();
-      hitungBayar();
-       } catch (SQLException ex) {
-        Logger.getLogger(Pembayaran2.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    
     }//GEN-LAST:event_bhitungActionPerformed
 
     private void bResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetActionPerformed
@@ -326,6 +329,7 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
                 state.executeUpdate(sql);
                 state.executeUpdate(sql1);
                 bacaData();
+                JOptionPane.showMessageDialog(null,"berhasil dihapus");
             } catch (SQLException e){
                 System.out.println("terjadi Error :"+e);
             }
@@ -338,6 +342,37 @@ DefaultTableModel tableModel = new DefaultTableModel(new Object [][] {},new Stri
     private void txtorderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtorderInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_txtorderInputMethodTextChanged
+
+    private void txtorderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtorderActionPerformed
+        // TODO add your handling code here:
+         
+        try{
+        con = KoneksiDatabase.getKoneksi();
+        state = con.createStatement();
+        String sql = "SELECT * FROM headinputan";
+             rs = state.executeQuery(sql);
+        while (rs.next()){
+            txttotalbayar.setText(rs.getString("sub_total"));
+        }
+       }catch (SQLException e){
+        JOptionPane.showMessageDialog(null,e);
+       }
+    }//GEN-LAST:event_txtorderActionPerformed
+
+    private void bhitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bhitungMouseClicked
+        // TODO add your handling code here:
+        try{
+        con = KoneksiDatabase.getKoneksi();
+        state = con.createStatement();
+        String sql = "SELECT * FROM headinputan";
+             rs = state.executeQuery(sql);
+        while (rs.next()){
+            txttotalbayar.setText(rs.getString("sub_total"));
+        }
+       }catch (SQLException e){
+        JOptionPane.showMessageDialog(null,e);
+       }
+    }//GEN-LAST:event_bhitungMouseClicked
 private void bacaData() throws SQLException{
     try{
         con = KoneksiDatabase.getKoneksi();

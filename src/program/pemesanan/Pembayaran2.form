@@ -89,9 +89,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Component id="tb1pesan" min="-2" pref="152" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txthapus" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
@@ -127,6 +127,7 @@
     <Component class="javax.swing.JTextField" name="txtorder">
       <Events>
         <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="txtorderInputMethodTextChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtorderActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bhitung">
@@ -134,6 +135,7 @@
         <Property name="text" type="java.lang.String" value="hitung"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bhitungMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bhitungActionPerformed"/>
       </Events>
     </Component>
