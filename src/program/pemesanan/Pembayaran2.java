@@ -82,6 +82,7 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
         bClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 255, 102));
 
         jLabel1.setFont(new java.awt.Font("Century Schoolbook", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -129,7 +130,7 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
         ));
         jScrollPane1.setViewportView(tb1Pesan);
 
-        tb1pesan.add(jScrollPane2);
+        tb1pesan.add(jScrollPane1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,7 +145,7 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        tb1pesan.add(jScrollPane3);
+        tb1pesan.add(jScrollPane2);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,7 +160,7 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        tb1pesan.add(jScrollPane4);
+        tb1pesan.add(jScrollPane3);
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,7 +175,7 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
         ));
         jScrollPane4.setViewportView(jTable4);
 
-        tb1pesan.add(jScrollPane5);
+        tb1pesan.add(jScrollPane4);
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,7 +190,7 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
         ));
         jScrollPane5.setViewportView(jTable5);
 
-        tb1pesan.add(jScrollPane6);
+        tb1pesan.add(jScrollPane5);
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,6 +204,8 @@ private final String[] header ={"No","No_Order","Jenis Makanan","Jumlah","Harga"
             }
         ));
         jScrollPane6.setViewportView(jTable6);
+
+        tb1pesan.add(jScrollPane6);
 
         jLabel4.setText("Hapus No Order");
 
