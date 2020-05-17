@@ -42,10 +42,11 @@ public class MenuUtama extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form Order Makanan");
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 0));
 
         bPesan.setBackground(new java.awt.Color(255, 255, 153));
-        bPesan.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        bPesan.setFont(new java.awt.Font("Kristen ITC", 1, 12)); // NOI18N
+        bPesan.setForeground(new java.awt.Color(255, 0, 0));
         bPesan.setText("PESAN MAKANAN");
         bPesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,8 +54,9 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        bExit.setBackground(new java.awt.Color(255, 255, 153));
-        bExit.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        bExit.setBackground(new java.awt.Color(102, 102, 102));
+        bExit.setFont(new java.awt.Font("Kristen ITC", 1, 10)); // NOI18N
+        bExit.setForeground(new java.awt.Color(255, 0, 0));
         bExit.setText("EXIT");
         bExit.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 204, 204)));
         bExit.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +65,9 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        bLogin.setBackground(new java.awt.Color(255, 255, 153));
-        bLogin.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        bLogin.setBackground(new java.awt.Color(102, 102, 102));
+        bLogin.setFont(new java.awt.Font("Kristen ITC", 1, 10)); // NOI18N
+        bLogin.setForeground(new java.awt.Color(255, 0, 0));
         bLogin.setText("LOGIN");
         bLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 204, 255)));
         bLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -74,12 +77,12 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Gabriola", 1, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel2.setFont(new java.awt.Font("Kristen ITC", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("SELAMAT DATANG DI RESTORAN JAVA");
 
-        jLabel3.setFont(new java.awt.Font("Imprint MT Shadow", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel3.setFont(new java.awt.Font("Kristen ITC", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("ANDA PUAS KAMI SENANG");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/program/pemesanan/ayam.jpg"))); // NOI18N
@@ -102,16 +105,18 @@ public class MenuUtama extends javax.swing.JFrame {
                                 .addGap(221, 221, 221)
                                 .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(224, 224, 224)
-                                .addComponent(bExit, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(206, 206, 206)
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(bExit, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 264, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(299, 299, 299)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(234, 234, 234))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(139, 139, 139))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,12 +125,12 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(bPesan, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bExit)
                     .addComponent(bLogin))
                 .addGap(37, 37, 37))
@@ -143,7 +148,7 @@ public class MenuUtama extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(106, 106, 106))
         );
 
         pack();
